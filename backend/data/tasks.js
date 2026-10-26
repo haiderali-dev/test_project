@@ -2,7 +2,7 @@
 let tasks = [
   {
     id: 1,
-    title: "Set up project Everyone",
+    title: "Set up project Zainab",
     description: "Create backend and frontend folder structure",
     status: "done",
     priority: "high",
