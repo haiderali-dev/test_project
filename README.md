@@ -192,3 +192,6 @@ build/test/deploy Pipeline on `main`. While Jenkins and the local Docker stack a
 running, Jenkins checks GitHub once a minute and starts a new build when `main`
 changes. The Pipeline follows the branch instead of pinning the previous commit,
 and serializes deployments to http://localhost:9003.
+
+Automatic Pipeline builds are also recorded in the orchestrator dashboard,
+including run results, stage progress, duration, and console logs.
