@@ -1,10 +1,10 @@
-FROM node:24-bookworm-slim AS backend-deps
+FROM node:24-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 AS backend-deps
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci --no-audit --no-fund
 COPY backend/ ./
 
-FROM node:24-bookworm-slim AS frontend-deps
+FROM node:24-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 AS frontend-deps
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
 RUN npm ci --no-audit --no-fund
@@ -24,7 +24,7 @@ RUN npm test -- --run --maxWorkers=2 --minWorkers=1
 FROM backend-deps AS backend-production
 RUN npm prune --omit=dev --no-audit --no-fund
 
-FROM node:24-bookworm-slim AS runtime
+FROM node:24-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 AS runtime
 WORKDIR /app
 ENV NODE_ENV=production PORT=8080 DEPLOY_ENV=staging
 ARG GIT_COMMIT=unknown

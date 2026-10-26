@@ -181,3 +181,5 @@ API, deployed revision, and task create/read/update/delete behavior.
 Staging is available at http://localhost:9003. `/health` reports readiness and
 `/version` identifies the deployed Git commit. Port 9003 is bound to local loopback.
 Task data is in memory and resets when the container restarts.
+
+The Docker base is pinned by digest to Node 24.21.0 for repeatable builds.
