@@ -183,3 +183,12 @@ Staging is available at http://localhost:9003. `/health` reports readiness and
 Task data is in memory and resets when the container restarts.
 
 The Docker base is pinned by digest to Node 24.21.0 for repeatable builds.
+
+
+### Automatic staging builds
+
+The orchestrator's `test-project` service enables Git polling for the approved
+build/test/deploy Pipeline on `main`. While Jenkins and the local Docker stack are
+running, Jenkins checks GitHub once a minute and starts a new build when `main`
+changes. The Pipeline follows the branch instead of pinning the previous commit,
+and serializes deployments to http://localhost:9003.
